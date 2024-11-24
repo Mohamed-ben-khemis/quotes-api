@@ -16,7 +16,7 @@ tasks:
       if [ ! -n "${MONGODB_ATLAS_PROJECT_ID+1}" ]; then
         echo "\$MONGODB_ATLAS_PROJECT_ID is not set. Lets try to login."
         if ! atlas auth whoami &> /dev/null ; then
-          atlas auth login --noBrowser
+          atlas --force auth  login --noBrowser
         fi
       fi
       MONGODB_CONNECTION_STRING=$(atlas_up)
